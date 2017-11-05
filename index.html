@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app='bookName'>
+
+<head>
+    <meta charset="utf-8">
+    <title>My HTML File {{i}}</title>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+  
+</head>
+
+<body>
+    <div ng-controller='booksCtrl'>
+       <div ng-repeat='(key, value) in books'>
+                <h2>{{ value.name }}</h2>
+            isbn:
+            <span>{{ value.isbn }}</span>
+            <img width={{value.img.width}} ng-src={{value.imgUri}} /> -{{value.name}}
+      <br>
+          <button ng-click="addItem(value.isbn)"> 
+              Add {{ value.isbn }} to cart
+              </button>
+        </div>   
+        </div>
+        <hr>
+        <div ng-controller="showCartCtrl">
+            {{ items }}
+            <button ng-click="getCart()">Show Cart</button>
+        </div>
+        </div>   
+    </div>
+    <div ng-controller="buyCtrl">
+      <p>Full name: {{user.firstname}} {{user.lastname}}</p>
+      <input placeholder="firstname" ng-model="user.firstname">
+      <input placeholder="lastname" ng-model="user.lastname">
+      <button ng-click="order()">Place order!</button>
+  </div>
+</body>
+
+</html>
